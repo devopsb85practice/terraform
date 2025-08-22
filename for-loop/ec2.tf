@@ -1,8 +1,8 @@
 resource "aws_instance" "roboshop" {
- for_each = var.instances
-  ami           = var.ami_id
-  instance_type = each.value
-  vpc_security_group_ids = [ aws_security_group.allow_all.id ]
+  for_each               = var.instances
+  ami                    = var.ami_id
+  instance_type          = each.value
+  vpc_security_group_ids = [aws_security_group.allow_all.id]
 
   tags = {
     Name = each.key
@@ -28,4 +28,4 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = var.sg_tags
-  }
+}

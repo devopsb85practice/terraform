@@ -1,8 +1,8 @@
 resource "aws_instance" "roboshop" {
-  count = 4 # count based loop
-  ami           = var.ami_id
-  instance_type = var.environment == "dev" ? "t3.micro" : "t3.small"
-  vpc_security_group_ids = [ aws_security_group.allow_all.id ]
+  count                  = 4 # count based loop
+  ami                    = var.ami_id
+  instance_type          = var.environment == "dev" ? "t3.micro" : "t3.small"
+  vpc_security_group_ids = [aws_security_group.allow_all.id]
 
   tags = var.ec2_tags
 }
@@ -26,4 +26,4 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = var.sg_tags
-  }
+}
