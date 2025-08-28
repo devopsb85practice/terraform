@@ -3,16 +3,25 @@ variable "ami_id" {
   default     = "ami-09c813fb71547fc4f"
   description = "AMI id of the joindevops"
 }
-# variable "instance_type" {
+variable "instance_type" {
 
-#   default = "t3.micro"
-#   description = "type of the instance"
-# }
+  
+}
 
+variable "project" {
+  default = "roboshop"
+}
+variable "environment" {
+
+}
+
+variable "instances" {
+  default = ["mongodb", "redis"]
+}
 variable "ec2_tags" {
   type = map(string)
   default = {
-    Name    = "roboshop"
+    # name    = "hello world"
     purpose = "varaibles practice"
   }
 }
@@ -37,35 +46,3 @@ variable "sg_tags" {
     Name = "allow-all"
   }
 }
-# variable "environment" {
-#   default = "dev"
-# }
-variable "instances" {
-  default = {
-    mongodb  = "t3.micro"
-    redis    = "t3.micro"
-    mysql    = "t3.small"
-    rabbitmq = "t3.micro"
-  }
-}
-variable "zone_id" {
-  default = "Z06642261B4AEFFCIQJUH"
-
-}
-variable "domain_name" {
-  default = "prasannadevops.online"
-}
-variable "project" {
-  default = "roboshop"
-}
-
-variable "environment" {
-  default = "dev"
-}
-variable "component" {
-  default = "cart"
-}
-# variable "finalname" {
-#   default = "${var.project}-${var.environment}-${var.component}"
-
-# }
