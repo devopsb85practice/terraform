@@ -12,7 +12,7 @@ variable "instance_type" {
 variable "ec2_tags" {
   type = map(string)
   default = {
-    name    = "hello world"
+    Name    = "hello world"
     purpose = "varaibles practice"
   }
 }

@@ -6,7 +6,7 @@ resource "aws_instance" "roboshop" {
   tags = var.ec2_tags
 
   provisioner "local-exec" {
-    command = " ${self.private_ip} > inventory "
+    command = "echo ${self.private_ip} > inventory "
     on_failure = continue
   }
   provisioner "local-exec" {
@@ -23,7 +23,7 @@ resource "aws_instance" "roboshop" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo dnf install nginx",
+      "sudo dnf install nginx -y",
       "sudo systemctl start nginx",
     ]
   }
